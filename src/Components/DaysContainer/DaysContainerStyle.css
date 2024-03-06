@@ -1,0 +1,8 @@
+.days-super-container{
+    height: 100vh;
+    background-color: black;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
