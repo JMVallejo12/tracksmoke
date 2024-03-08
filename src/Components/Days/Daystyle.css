@@ -1,4 +1,19 @@
 .days-container{
     border: 1px solid black;
-    
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.days-left{
+    /* border: 1px solid white; */
+    width: 150px;
+    padding-left: 5rem;
+}
+
+.days-right{
+    /* border: 1px solid white; */
+    padding-right: 5rem;
+    position: relative;
 }

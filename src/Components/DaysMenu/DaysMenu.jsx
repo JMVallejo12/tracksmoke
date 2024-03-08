@@ -1,10 +1,12 @@
 import './DaysMenuStyle.css'
 import {collection, doc,getFirestore,getDoc,getDocs, updateDoc, addDoc, deleteDoc, setDoc} from 'firebase/firestore'
 import Button from '../Commons/Button/Button'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import Translate from '../../Utils/Translate'
+import statsContext from '../../Context/StatsContext'
 
 function DaysMenu({nameDay,dayID}){
+    const {setGlobalQuantity, setGlobalAverage} = useContext(statsContext)
 
     const [makeJoint, setMakeJoint] = useState("false")
     const [smokeJoint, setSmokeJoint] = useState("false")
@@ -18,7 +20,6 @@ function DaysMenu({nameDay,dayID}){
     const docRef = doc(collection(db, "days"), dayID)
     const smoked_joint_collection = collection(db, "smoked_joints")
     const smoked_joints_doc_ref = doc(collection(db,"smoked_joints"), "smoked_joint_doc")
-
 
     // haciendo un useeffect para traer la informacion de los porros armados
     useEffect(()=>{
@@ -35,7 +36,7 @@ function DaysMenu({nameDay,dayID}){
 
     function updateInfo(){
         
-        // Para actualizar la informacion en la colecciojn
+        // Para actualizar la informacion en la coleccion
         const newData = {
             finish: finishJoint,
             make: makeJoint,
@@ -93,6 +94,7 @@ function DaysMenu({nameDay,dayID}){
                             }
                             setDoc(doc(smoked_joint_collection, "smoked_joint_doc"),smoked_joint_data)
                             .then(()=>{
+                                setGlobalQuantity(newQuantity)
                                 console.log("Información de los porros fumados actualizada correctamente")
                             })
                             .catch(()=>{
@@ -100,7 +102,6 @@ function DaysMenu({nameDay,dayID}){
                             })
                         }
                     })
-
         }
 
         if(dayID === "sunday"){
@@ -112,10 +113,12 @@ function DaysMenu({nameDay,dayID}){
                 if(response.exists()){
                     // Cantidad de porros fumados en la semana
                     const currentQuantity = response.data().quantity
+                    
                     console.log("La cantidad de porros fumados en la semana es de "+currentQuantity)
 
                     // hacer un promedio de cuanto se fuma por dia
                     const averageQuantity = (currentQuantity / 7).toFixed(1)
+                    setGlobalAverage(averageQuantity)
                     console.log("El promedio de porros fumados en 7 días es de "+averageQuantity+" por día")
                 }
             })

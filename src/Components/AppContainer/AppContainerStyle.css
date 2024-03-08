@@ -1,0 +1,10 @@
+.app-container{
+    display: grid;
+    grid-template-columns: 2;
+    grid-template-rows: 2;
+    grid-template-areas: 
+        "profile stats"
+        "profile days"
+    ;
+    
+}

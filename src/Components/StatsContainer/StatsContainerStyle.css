@@ -1,0 +1,6 @@
+.stats-super-container{
+    border: 1px solid white;
+    grid-area: stats;
+    height: 200px;
+    background-color: black;
+}
