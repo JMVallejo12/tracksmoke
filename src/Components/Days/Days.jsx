@@ -13,6 +13,7 @@ function Days(){
     const [showMenuViernes, setShowMenuViernes] = useState(false)
     const [showMenuSabado, setShowMenuSabado] = useState(false)
     const [showMenuDomingo, setShowMenuDomingo] = useState(false)
+   
 
 
     return(
@@ -20,37 +21,86 @@ function Days(){
         <div className='days-container'>
             <div className='days-left'>
                 <div className='monday-container'>
-                    <DaysButton handleClick={()=> {setShowMenuLunes(true)}}>LUNES</DaysButton>
+                    <DaysButton handleClick={()=> {setShowMenuLunes(true)
+                        setShowMenuMartes(false)
+                        setShowMenuMiercoles(false)
+                        setShowMenuJueves(false)
+                        setShowMenuViernes(false)
+                        setShowMenuSabado(false)
+                        setShowMenuDomingo(false)
+                    }}>LUNES</DaysButton>
                     
                 </div>
 
                 <div className='tuesday-container'>
-                    <DaysButton handleClick={()=> {setShowMenuMartes(true)}}>MARTES</DaysButton>
+                    <DaysButton handleClick={()=> {setShowMenuMartes(true)
+                        setShowMenuLunes(false)
+                        setShowMenuMiercoles(false)
+                        setShowMenuJueves(false)
+                        setShowMenuViernes(false)
+                        setShowMenuSabado(false)
+                        setShowMenuDomingo(false)
+                    }}>MARTES</DaysButton>
                     
                 </div>
 
                 <div className='wensday-container'>
-                    <DaysButton handleClick={()=> {setShowMenuMiercoles(true)}}>MIERCOLES</DaysButton>
+                    <DaysButton handleClick={()=> {setShowMenuMiercoles(true)
+                        setShowMenuMartes(false)
+                        setShowMenuLunes(false)
+                        setShowMenuJueves(false)
+                        setShowMenuViernes(false)
+                        setShowMenuSabado(false)
+                        setShowMenuDomingo(false)
+                    }}>MIERCOLES</DaysButton>
                     
                 </div>
 
                 <div className='thursday-container'>
-                    <DaysButton handleClick={()=> {setShowMenuJueves(true)}}>JUEVES</DaysButton>
+                    <DaysButton handleClick={()=> {setShowMenuJueves(true)
+                        setShowMenuMartes(false)
+                        setShowMenuMiercoles(false)
+                        setShowMenuLunes(false)
+                        setShowMenuViernes(false)
+                        setShowMenuSabado(false)
+                        setShowMenuDomingo(false)
+                    }}>JUEVES</DaysButton>
                     
                 </div>
 
                 <div className='friday-container'>
-                    <DaysButton handleClick={()=> {setShowMenuViernes(true)}}>VIERNES</DaysButton>
+                    <DaysButton handleClick={()=> {setShowMenuViernes(true)
+                        setShowMenuMartes(false)
+                        setShowMenuMiercoles(false)
+                        setShowMenuJueves(false)
+                        setShowMenuLunes(false)
+                        setShowMenuSabado(false)
+                        setShowMenuDomingo(false)
+                    }}>VIERNES</DaysButton>
                     
                 </div>
 
                 <div className='saturday-container'>
-                    <DaysButton handleClick={()=> {setShowMenuSabado(true)}}>SABADO</DaysButton>
+                    <DaysButton handleClick={()=> {setShowMenuSabado(true)
+                        setShowMenuMartes(false)
+                        setShowMenuMiercoles(false)
+                        setShowMenuJueves(false)
+                        setShowMenuViernes(false)
+                        setShowMenuLunes(false)
+                        setShowMenuDomingo(false)
+                    }}>SABADO</DaysButton>
                     
                 </div>
 
                 <div className='sunday-container'>
-                    <DaysButton handleClick={()=> {setShowMenuDomingo(true)}}>DOMINGO</DaysButton>
+                    <DaysButton handleClick={()=> {setShowMenuDomingo(true)
+                    setShowMenuMartes(false)
+                    setShowMenuMiercoles(false)
+                    setShowMenuJueves(false)
+                    setShowMenuViernes(false)
+                    setShowMenuSabado(false)
+                    setShowMenuLunes(false)
+                    }}>DOMINGO</DaysButton>
                     
                 </div>
             </div>

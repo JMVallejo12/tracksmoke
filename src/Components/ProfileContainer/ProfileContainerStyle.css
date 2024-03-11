@@ -1,0 +1,5 @@
+.profile-super-container{
+    grid-area: profile;
+    width: 400px;
+    border: 1px solid white;
+}

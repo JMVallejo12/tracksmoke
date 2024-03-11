@@ -1,4 +1,6 @@
 .app-container{
+    background-color: black;
+    padding: 0.5rem;
     display: grid;
     grid-template-columns: 2;
     grid-template-rows: 2;
@@ -6,5 +8,13 @@
         "profile stats"
         "profile days"
     ;
-    
+}
+
+.app-super-container{
+
+    background-color: black;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
